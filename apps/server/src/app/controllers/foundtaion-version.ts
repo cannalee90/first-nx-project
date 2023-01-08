@@ -7,9 +7,24 @@ export class FoundationVersion {
 
   @Post()
   async publishNewVersion(@Body() body) {
-    console.log('version : ', body.version);
+    const client = this.supabaseService.getClient();
 
-    return body;
+    const ret = await this.getFoundationVersion({
+      version: body.version,
+    });
+
+    if (ret) {
+        const { data } = await client.from('foundation_version')
+            .update({ version: body.version, status: body.status })
+            .eq('id', ret.id)
+            .select();
+        return data;
+    }
+
+    const { data } = await client.from('foundation_version')
+        .insert({ version: body.version })
+        .select();
+    return data
   }
 
   @Get()
@@ -22,7 +37,7 @@ export class FoundationVersion {
   @Get(':version')
   async getFoundationVersion(@Param() params) {
     const { version } = params;
-    console.log('version : ', version);
+    console.log('find version : ', version);
 
     const client = this.supabaseService.getClient();
     const { data, error } = await client

@@ -28,7 +28,7 @@ export class SupabaseService {
       this.config.get('SUPABASE_ANON_KEY')
     );
 
-    this.logger.log('auth has been set!');
+    // this.logger.log('auth has been set!');
 
     return this.clientInstance;
   }

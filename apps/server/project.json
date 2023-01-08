@@ -1,7 +1,7 @@
 {
-  "name": "design-system-foundation",
+  "name": "server",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/design-system-foundation/src",
+  "sourceRoot": "apps/server/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -10,10 +10,10 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/apps/design-system-foundation",
-        "main": "apps/design-system-foundation/src/main.ts",
-        "tsConfig": "apps/design-system-foundation/tsconfig.app.json",
-        "assets": ["apps/design-system-foundation/src/assets"]
+        "outputPath": "dist/apps/server",
+        "main": "apps/server/src/main.ts",
+        "tsConfig": "apps/server/tsconfig.app.json",
+        "assets": ["apps/server/src/assets"]
       },
       "configurations": {
         "production": {
@@ -22,8 +22,8 @@
           "inspect": false,
           "fileReplacements": [
             {
-              "replace": "apps/design-system-foundation/src/environments/environment.ts",
-              "with": "apps/design-system-foundation/src/environments/environment.prod.ts"
+              "replace": "apps/server/src/environments/environment.ts",
+              "with": "apps/server/src/environments/environment.prod.ts"
             }
           ]
         }
@@ -32,11 +32,11 @@
     "serve": {
       "executor": "@nrwl/js:node",
       "options": {
-        "buildTarget": "design-system-foundation:build"
+        "buildTarget": "server:build"
       },
       "configurations": {
         "production": {
-          "buildTarget": "design-system-foundation:build:production"
+          "buildTarget": "server:build:production"
         }
       }
     },
@@ -44,14 +44,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/design-system-foundation/**/*.ts"]
+        "lintFilePatterns": ["apps/server/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/design-system-foundation/jest.config.ts",
+        "jestConfig": "apps/server/jest.config.ts",
         "passWithNoTests": true
       }
     }

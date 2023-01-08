@@ -14,10 +14,8 @@ describe('AppService', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to design-system-foundation!"', () => {
-      expect(service.getData()).toEqual({
-        message: 'Welcome to design-system-foundation!',
-      });
+    it('should return "Welcome to server!"', () => {
+      expect(service.getData()).toEqual({ message: 'Welcome to server!' });
     });
   });
 });

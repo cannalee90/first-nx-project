@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'design-system-foundation',
+  displayName: 'server',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -12,5 +12,5 @@ export default {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/design-system-foundation',
+  coverageDirectory: '../../coverage/apps/server',
 };

@@ -15,14 +15,14 @@ export class AppController {
     return this.appService.getData();
   }
 
-  @Get('test')
-  async getTest() {
+  @Get('foundataion-version')
+  async getAllFoundationVersions() {
     const client = this.supabaseService.getClient();
     const { data, error } = await client.from('foundation_version').select('*');
     return data;
   }
 
-  @Get('find-version/:version')
+  @Get('foundataion-version/:version')
   async getFoundationVersion(@Param() params) {
     const { version } = params;
     console.log('version : ', version);

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { SupabaseService } from '../../services/supabase';
+import { SupabaseService } from '../services/supabase';
 
 @Controller('foundation-version')
 export class FoundationVersion {

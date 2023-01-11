@@ -6,7 +6,7 @@ export class FoundationVersion {
   constructor(private supabaseService: SupabaseService) {}
 
   @Post()
-  async publishNewVersion(@Body() body) {
+  async upsertFoundationVersion(@Body() body) {
     const client = this.supabaseService.getClient();
 
     const ret = await this.getFoundationVersion({
@@ -14,17 +14,19 @@ export class FoundationVersion {
     });
 
     if (ret) {
-        const { data } = await client.from('foundation_version')
-            .update({ version: body.version, status: body.status })
-            .eq('id', ret.id)
-            .select();
-        return data;
+      const { data } = await client
+        .from('foundation_version')
+        .update({ version: body.version, status: body.status })
+        .eq('id', ret.id)
+        .select();
+      return data;
     }
 
-    const { data } = await client.from('foundation_version')
-        .insert({ version: body.version })
-        .select();
-    return data
+    const { data } = await client
+      .from('foundation_version')
+      .insert({ version: body.version })
+      .select();
+    return data;
   }
 
   @Get()

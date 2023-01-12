@@ -2,14 +2,19 @@ name: Trigger foundation upgrade
 on:
   workflow_dispatch:
     inputs:
-      symVersion:
-        description: 'foundation version for upgrade'
-        default: '0'
+      name:
+        description: 'Person to greet'
         required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
 jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Hello upgrade to ${{ github.event.inputs.version }}"
+        echo "Hello ${{ github.event.inputs.name }}"
+        echo "- in ${{ github.event.inputs.home }}"

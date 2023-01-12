@@ -17,4 +17,4 @@ jobs:
           author_name: KANGHO LEE
           author_email: cannalee90@gmail.com
           message: 'generator update'
-          add: '*.jsson'
+          add: '*.json'

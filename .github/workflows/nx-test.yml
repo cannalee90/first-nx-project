@@ -9,5 +9,5 @@ jobs:
         with:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
-      - run: npm ci
+      - run: npm install
       - run: npx nx run foundation-cli:generate

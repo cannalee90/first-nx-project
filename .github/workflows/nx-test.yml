@@ -1,4 +1,4 @@
-name: Trigger foundation upgrade
+name: Generate foundation.json
 on:
   workflow_dispatch:
 jobs:

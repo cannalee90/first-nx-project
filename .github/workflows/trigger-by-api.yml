@@ -2,7 +2,7 @@ name: Trigger foundation upgrade
 on:
   workflow_dispatch:
     inputs:
-      version:
+      symVersion:
         description: 'foundation version for upgrade'
         default: '0'
         required: true

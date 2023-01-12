@@ -9,6 +9,5 @@ jobs:
         with:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
-      - uses: EndBug/add-and-commit@v9
       - run: npm ci
       - run: npx nx run foundation-cli:generate

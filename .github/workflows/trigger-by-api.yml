@@ -4,6 +4,7 @@ on:
     inputs:
       version:
         description: 'foundation version for upgrade'
+        default: '0'
         required: true
 
 jobs:

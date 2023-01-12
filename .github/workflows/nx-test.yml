@@ -10,3 +10,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
       - run: node test.js
+      
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: KANGHO LEE
+          author_email: cannalee90@gmail.com
+          message: 'generator update'
+          add: '*.jsson'

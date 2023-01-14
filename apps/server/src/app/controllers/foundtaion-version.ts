@@ -32,7 +32,7 @@ export class FoundationVersion {
   @Get()
   async getAllFoundationVersions() {
     const client = this.supabaseService.getClient();
-    const { data, error } = await client.from('foundation_version').select('*');
+    const { data } = await client.from('foundation_version').select('*');
     return data;
   }
 
@@ -42,7 +42,7 @@ export class FoundationVersion {
     console.log('find version : ', version);
 
     const client = this.supabaseService.getClient();
-    const { data, error } = await client
+    const { data } = await client
       .from('foundation_version')
       .select('*')
       .eq('version', version)

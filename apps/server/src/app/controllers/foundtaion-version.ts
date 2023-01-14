@@ -45,7 +45,7 @@ export class FoundationVersion {
     const { data } = await client
       .from('foundation_version')
       .select('*')
-      .eq('version', version)
+      .eq('semantic_version', version)
       .limit(1);
     return data?.[0] ?? null;
   }

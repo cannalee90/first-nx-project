@@ -6,10 +6,11 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { FoundationVersion } from './controllers/foundtaion-version';
 import { HttpModule } from '@nestjs/axios';
+import { FoundationDetail } from './controllers/foundtaion-detail';
 
 @Module({
   imports: [ConfigModule.forRoot(), HttpModule],
-  controllers: [AppController, FoundationVersion],
+  controllers: [AppController, FoundationVersion, FoundationDetail],
   providers: [AppService, SupabaseService],
 })
 export class AppModule {}

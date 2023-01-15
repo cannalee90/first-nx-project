@@ -8,15 +8,16 @@ export class FoundationVersion {
   @Post()
   async upsertFoundationVersion(@Body() body) {
     const client = this.supabaseService.getClient();
+    const { version, status } = body;
 
     const ret = await this.getFoundationVersion({
-      version: body.version,
+      semantic_version: version,
     });
 
     if (ret) {
       const { data } = await client
         .from('foundation_version')
-        .update({ version: body.version, status: body.status })
+        .update({ semantic_version: version, status })
         .eq('id', ret.id)
         .select();
       return data;
@@ -24,8 +25,9 @@ export class FoundationVersion {
 
     const { data } = await client
       .from('foundation_version')
-      .insert({ version: body.version })
+      .insert({ semantic_version: version, status })
       .select();
+
     return data;
   }
 

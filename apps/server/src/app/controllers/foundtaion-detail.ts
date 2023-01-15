@@ -29,6 +29,10 @@ export class FoundationDetail {
       foundation_id: data[0].id,
     });
 
+    if (!ret[0]) {
+      throw new Error('Transaction failed to insert');
+    }
+
     return ret;
   }
 

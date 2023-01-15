@@ -1,9 +1,24 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { GithubService } from '../services/github';
 import { SupabaseService } from '../services/supabase';
 
 @Controller('foundation-version')
 export class FoundationVersion {
-  constructor(private supabaseService: SupabaseService) {}
+  constructor(
+    private supabaseService: SupabaseService,
+    private githubService: GithubService
+  ) {}
+
+  @Post('deploy')
+  async deploy(@Body() body) {
+    const { version } = body;
+
+    const ret = await this.githubService.triggerGithubActions(
+      'https://api.github.com/repos/cannalee90/first-nx-project/actions/workflows/45167464/dispatches',
+      version
+    );
+    console.log(ret);
+  }
 
   @Post()
   async upsertFoundationVersion(@Body() body) {

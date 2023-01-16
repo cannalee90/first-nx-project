@@ -14,8 +14,9 @@ export class FoundationVersion {
     const { version } = body;
 
     const ret = await this.githubService.triggerGithubActions(
-      'https://api.github.com/repos/cannalee90/first-nx-project/actions/workflows/45167464/dispatches',
-      version
+      'https://api.github.com/repos/team-auspicious/foundation/actions/workflows/45564556/dispatches',
+      version,
+      'master'
     );
     console.log(ret);
   }

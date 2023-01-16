@@ -13,6 +13,8 @@ export class FoundationVersion {
   async deploy(@Body() body) {
     const { version } = body;
 
+    console.log('deploying version : ', version);
+
     const ret = await this.githubService.triggerGithubActions(
       'https://api.github.com/repos/team-auspicious/foundation/actions/workflows/45564556/dispatches',
       version,

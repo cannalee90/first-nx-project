@@ -20,7 +20,8 @@ export class FoundationVersion {
       version,
       'master'
     );
-    console.log(ret);
+
+    return await this.upsertFoundationVersion({version, status: true});
   }
 
   @Post()
